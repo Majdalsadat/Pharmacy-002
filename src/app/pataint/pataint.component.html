@@ -1,0 +1,120 @@
+<!--<body>
+<header>
+    <h2><a href="# "><i ></i> Patient Medical Record</a></h2>
+</header>
+
+<div class="cover">
+
+
+    <table>
+        <tr>
+            <td >Address</td>
+            <td >saudi</td>
+
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>majd</td>
+        </tr>
+
+        <tr>
+            <td>National ID</td>
+            <td>444444444444</td>
+        </tr>
+
+        <tr>
+            <td>Date</td>
+            <td>1/1/1993</td>
+        </tr>
+        <tr>
+            <td>PhoneNumber</td>
+            <td>0543651919</td>
+        </tr>
+    </table>
+</div>
+
+</body>-->
+
+<!--<tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>john@example.com</td>
+</tr>
+<tr>
+    <td>Mary</td>
+    <td>Moe</td>
+    <td>mary@example.com</td>
+</tr>
+<tr>
+    <td>July</td>
+    <td>Dooley</td>
+    <td>july@example.com</td>
+</tr>
+</tbody>
+</table>
+</div>-->
+
+
+
+
+
+    <div class="card" style="width:300px;margin-left: 40%">
+        <img class="card-img" src="ph1.jpg" >
+        <div class="card-body">
+            <h4 class="card-title">Majd</h4>
+            <p class="card-text"><a>age : 27</a><br>
+            <a>National ID : 1234567</a><br><a>Phone Number : 05555555555</a></p>
+            <a href="#" class="btn btn-primary">See Drugs Prescription</a>
+        </div>
+
+    <br>
+</div>
+
+<br>
+
+
+<div class="container">
+    <div class="card bg-secondary text-white">
+        <div class="card-body"><h3 style="text-align: center">Drugs Prescription</h3></div>
+    </div></div>
+    <br>
+
+
+    <table class="table table-dark table-hover" style="margin-left: 25%">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Dr_name</th>
+            <th>Date</th>
+            <th>Drugs List</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+       <tr *ngFor="let drugs of dragPre; let id = index">
+
+           <td>
+           <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.id}}</span>
+       </td>
+           <td>
+               <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.dr_name}}</span>
+           </td>
+           <td>
+               <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.date}}</span>
+           </td>
+           <td>
+               <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.companyName}}</span>
+           </td>
+           <td>
+            <span class="table-view">
+                 <a  href="" class="btn btn-primary" >View</a>
+            </span>
+           </td>
+       </tr>
+
+        </tbody>
+    </table>
+
+        <a (mousedown)="comper()" > view </a>
+
+
