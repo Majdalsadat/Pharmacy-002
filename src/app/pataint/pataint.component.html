@@ -55,10 +55,13 @@
 </div>-->
 
 
+    <div class="container">
+        <div class="card bg-danger text-white">
+        <div class="card-body"><h3 style="text-align: center">Patient Medical Record</h3></div>
+    </div></div><br>
 
 
-
-    <div class="card" style="width:300px;margin-left: 40%">
+    <div  class="card" style="width:300px;margin-left: 40%">
         <img class="card-img" src="ph1.jpg" >
         <div class="card-body">
             <h4 class="card-title">Majd</h4>
@@ -67,54 +70,86 @@
             <a href="#" class="btn btn-primary">See Drugs Prescription</a>
         </div>
 
-    <br>
-</div>
+          <br>
+    </div>
 
 <br>
 
 
-<div class="container">
-    <div class="card bg-secondary text-white">
+    <div class="container">
+        <div class="card bg-secondary text-white">
         <div class="card-body"><h3 style="text-align: center">Drugs Prescription</h3></div>
     </div></div>
     <br>
 
-
-    <table class="table table-dark table-hover" style="margin-left: 25%">
+<div>
+    <table  class="table table-dark table-hover" style="margin-left: 25%" >
         <thead>
         <tr>
             <th>ID</th>
             <th>Dr_name</th>
             <th>Date</th>
             <th>Drugs List</th>
-            <th>View</th>
+
         </tr>
         </thead>
         <tbody>
-       <tr *ngFor="let drugs of dragPre; let id = index">
+            <tr *ngFor="let m of r ; let id = index ">
 
-           <td>
-           <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.id}}</span>
-       </td>
-           <td>
-               <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.dr_name}}</span>
-           </td>
-           <td>
-               <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.date}}</span>
-           </td>
-           <td>
-               <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{drugs.companyName}}</span>
-           </td>
-           <td>
-            <span class="table-view">
-                 <a  href="" class="btn btn-primary" >View</a>
-            </span>
-           </td>
-       </tr>
+            <td>
+                <span>{{m.id}}</span>
+            </td>
+            <td>
+               <span>{{m.dr_name}}</span>
+            </td>
+            <td>
+               <span>{{m.date}}</span>
+            </td>
+            <td>
+                <span class="table-view">
+                    <a  href="" class="btn btn-primary" >View</a>
+                </span>
+            </td>
+            </tr>
 
         </tbody>
-    </table>
+    </table></div>
+<br>
 
-        <a (mousedown)="comper()" > view </a>
+        <!--<a (mousedown)="comper()" > view </a>-->
 
 
+<div>
+        <table class="table table-hover" style="background-color:gray">
+            <thead>
+            <tr>
+                <th>Dr-name</th>
+                <th>Drug_name</th>
+                <th>IS_taken</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pa of d;">
+                <td>
+                    {{pa.dr_name}}
+                </td>
+                <td>
+                   {{pa.Name}}
+                </td>
+                <td>
+                   <span class="checkbox-rounded">
+                       {{pa.is_dis}}
+                   </span>
+                </td>
+                <label class="container">Taken
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+
+            </tr>
+            </tbody>
+        </table>
+
+</div>
+
+<button type="button" class="btn btn-success">Submit</button>

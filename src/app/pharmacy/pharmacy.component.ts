@@ -12,23 +12,32 @@ import {GetMRAService} from '../get-mra.service';
 })
 export class PharmacyComponent implements OnInit {
 
-  constructor(private alert: AlertsService,
-              private router: Router,
-              private getMRA: GetMRAService
-  ) {
-  }
+  private Hospital_Address = '0xBF8091555d8ced0C0da7bb6d4913dB22d68e0341';
+
+  constructor(
+      private alert: AlertsService,
+      private router: Router,
+      private getMRA: GetMRAService
+  ) {}
+
+
 
   public form = {
     Id: null,
   };
 
+
+
+
   ngOnInit() {
   }
+
+
 
   getUser() {
     console.log(this.form.Id);
 
-    const ABI = [
+  const ABI = [
       {
         'constant': false,
         'inputs': [
@@ -317,7 +326,7 @@ export class PharmacyComponent implements OnInit {
     ];
 
     // Medical Record System Contract Address
-    const address = '0xb14889d951b0033705f3c9ce8b52a469096b2da6';
+    const address = '0x6a4eb469cc35f57069c81c24c463fae91e13b76b';
 
 
     const mycontract = new web3.eth.Contract(ABI, address , {
@@ -328,13 +337,14 @@ export class PharmacyComponent implements OnInit {
 
     // Hospital Address
     if (this.form.Id != null) {
-      mycontract.methods.checkMedicalRecord(this.form.Id).call({from: '0xBF8091555d8ced0C0da7bb6d4913dB22d68e0341'} , (error , result) => {
+      mycontract.methods.checkMedicalRecord(this.form.Id).call({from: this.Hospital_Address} , (error , result) => {
         if (!error) {
           console.log(error);
           console.log(result);
           if (result === true) {
+            //this.getMRA.nID = this.form.Id;
             // this.getMRA.getMedicalRecordAddress(this.form.Id);
-            this.router.navigateByUrl('/patint');
+            this.router.navigateByUrl('/patient');
           } else {
             this.alert.setMessage('The national ID you have entered is invalid.' , 'error' );
           }
@@ -345,6 +355,9 @@ export class PharmacyComponent implements OnInit {
 
 
     }
-  }}
+  }
 
+
+
+}
 

@@ -1,15 +1,19 @@
+<div class="container">
+    <div class="card bg-danger text-white">
+        <div class="card-body"><h3 style="text-align: center">Pharmacy System</h3></div>
+    </div></div><br>
 <div style="height: 200px;"><img src="assets/pharmacy logo.png"></div>
 
 <div style="width:2000px; position: fixed;" ><hr style="float: bottom;border-width: medium;"></div><br><br><br>
-
+<form (ngSubmit)="getUser()">
 <div class="input-group mb-3" style="position: fixed">
 
-  <input type="text" class="form-control" placeholder="Enter Patient Address.." style="margin-left:30%">
+  <input type="text" class="form-control" placeholder="Enter Patient National ID.." style="margin-left:30%" [(ngModel)]="form.Id" [ngModelOptions]="{standalon : true}" required="required">
   <div class="input-group-append">
-    <button class="btn btn-primary" type="button" (click)="router.navigateByUrl('/patint')">OK</button>
-    <button class="btn btn-danger" type="button" (click)="alert.setMessage('The Address is Wrong ')" style="margin-right: 400px">Cancel</button>
+    <button class="btn btn-primary" type="button" (click)="router.navigateByUrl('/patint')" style="margin-right: 400px">OK</button>
+
   </div>
-</div>
+</div></form>
 <!--[(ngModel)]="form.Id" [ngModelOptions]="{standalon : true}"-->
 <ul>
   <li><a class="fas fa-hospital-symbol" style="font-size: 20px; float: left;"></a></li>
